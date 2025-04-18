@@ -10,7 +10,10 @@ export let apl: APL;
 
 switch (aplType) {
   case "upstash":
-    apl = new UpstashAPL();
+    apl = new UpstashAPL({
+      restURL: process.env.UPSTASH_REDIS_REST_URL || "",
+      restToken: process.env.UPSTASH_REDIS_REST_TOKEN || "",
+    });
 
     break;
 
